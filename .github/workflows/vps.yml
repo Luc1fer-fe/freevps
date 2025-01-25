@@ -1,0 +1,16 @@
+name: VPS Setup
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  setup-vps:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y screen
+          screen -dm bash -c "while true; do echo 'VPS is running'; sleep 30; done"
